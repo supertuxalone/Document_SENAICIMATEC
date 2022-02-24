@@ -1,0 +1,326 @@
+##########################################################
+
+	1 - CRIAR O PROJETO NA PASTA QUE SERA A REFERENCIA PARA OS OUTROS TRABALHOS
+	
+	#MKDIR funLucas
+	#MKDIR projetoGit
+	
+	1.2 - DENTRO DA PASTA projetoGit criar algum projeto qualquer em HTML.
+	
+		index.html
+		
+	1.3 - EXECUTE O COMANDO 
+		# git init > para inicializar um repositório git
+	
+	1.4 - NA PASTA projetoGit, seguir 
+		# git add index.html > para marcar o arquivo para ser salvo (commitado)
+	
+	
+	1.5 - REGISTRE OS COMMIT
+		# git config --local user.email "lucas@gmail.com"
+		# git config --local user.name "Lucas Silva"
+		
+	1.6 - EXECUTE O COMANDO 
+		# git commit -m "Criando arquivo index.html com lista de cursos"
+	
+	1.7 - COMANDO
+		#git log > analise a sua saída
+		
+		
+	passo ( 2 )
+		
+		
+	1.8 - EXECUTE O COMANDO 
+		# git remote add local E:\senai_cimatec\servidorGitLocal
+		
+	passo ( 3 )
+	
+	1.9 - EXECUTE O COMANDO 
+		# git push local master > para enviar as suas modificações para o seu servidor
+	
+	passo ( 3.3 )
+	
+	** EXTRA (Crie o arquivo .gitignore) onde todos os arquivos ou 
+			caminhos informados nessa nesse aruivos serão ignorados.
+			
+	2.0 - NA BRANCH Master
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		- ao final adicione o arquivo modificado no repositório que esta trabalhando
+			# git add index.html
+			
+		- faça o commit das alterações realizadas 
+			# git commit -m "Alterando com branch Master no projeto Lucas"
+
+	passo ( 5 )
+	
+	2.1 - NA BRANCH Master
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		- ao final adicione o arquivo modificado no repositório que esta trabalhando
+			# git add index.html
+			
+		- faça o commit das alterações realizadas 
+			# git commit -m "Alterando com branch Master no projeto Lucas"
+	
+	2.2 - EXECUTAR O COMANDO
+		# git push local master
+			(error: failed to push some refs to 'E:\senai_cimatec\servidorGitLocal')
+		
+		# git pull local master > para trazer as alterações da outra pessoa
+		
+		# git push local master
+		
+	
+#####################################################################################
+
+	2 - SERVIDOR ONDE SERÃO LANCADOS "PUSH" EMPURADOS OS PROJETOS CRIADOS. 
+	
+	#MKDIR servidorGitLocal
+	
+	NA PASTA CRIADA
+	
+	2.1 - EXECUTE O COMANDO 
+		# git init --bare > parâmetro indica que este repositório é puro
+		
+	
+	passo ( 1.8 ) 
+	
+
+
+######################################################################################
+	
+	3 - CRIE UMA NOVA PASTA EM SEU COMPUTADOR, PARA REPRESENTAR O TRABALHO DE OUTRA PESSOA
+	
+	#MKDIR estagJu
+	
+	NA PASTA CRIADA 
+	
+	3.1 - EXECUTE O COMANDO 
+		# git clone E:\senai_cimatec\servidorGitLocal projetoClone
+						(caminho do Sever Local)           (nome qualquer do projeto clonado)
+	
+	NA PASTA CLONADA
+	
+	3.2 - EXECUTE O COMANDO
+		# git remote rename origin local > para renomear o repositório local da outra pessoa de "origin" para "local"
+		
+	passo ( 1.9 )
+	
+	3.3 - EXECUTE O COMANDO
+		# git pull local master > para baixar as modificações;
+		
+	EXTRA (Crie uma conta/repositório no gitHub) EXECUTE
+		# git remote add origin https://github.com/supertuxalone/projetoGit.git
+			(NESSE CASO TUDO QUE FOR PUSH PARA ORIGIN VAI SER UPDADO NO GITHUN DA CONTA CRIADA)
+			
+		# git push origin master > vai upar na Conta GITHUB da Branch "Master" 
+		
+		# git push local master > para enviar as suas alterações para o repositório no Local.
+		
+		# git remote -v > lista para quais diretorios estão sendo enviados Local (local) ou GitHub (origin)
+			local   E:\senai_cimatec\servidorGitLocal (fetch)
+			local   E:\senai_cimatec\servidorGitLocal (push)
+			origin  https://github.com/supertuxalone/projetoGit.git (fetch)
+			origin  https://github.com/supertuxalone/projetoGit.git (push)
+		
+	3.4 - EXECUTE
+		# git branch lista > para criar uma nova branch
+		# git checkout lista > para usar a nova branch
+	
+	3.5 - TRABALHOS DIARIOS
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		- ao final adicione o arquivo modificado no repositório que esta trabalhando
+			# git add index.html
+			
+		- REGISTRE antes do COMMIT (se necessário) 
+			# git config --local user.email "estagJu@gmail.com"
+			# git config --local user.name "Julia Silva"
+		
+		- faça o commit das alterações realizadas 
+			# git commit -a -m "Alterando com branch Lista"
+				
+	3.6 - EXECUTE O COMANDO
+		# git checkout master > para voltar à linha de desenvolvimento master
+	
+	passo ( 2.0 )
+
+	3.7 - 
+	
+		
+########################################################################################
+
+	4 - ALTERAR O BRANCH 
+	
+	EXECUTE O COMANDO
+		# git branch titulo
+
+	4.1 - DIGITE
+		# git checkout titulo > para começar a trabalhar com essa branch
+	
+	4.2 - TRABALHOS DIARIOS
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		- ao final adicione o arquivo modificado no repositório que esta trabalhando
+			# git add index.html
+		- faça o commit das alterações realizadas 
+			# git commit -m "Alterando alguma coisa"
+		
+	4.3 - EXECUTE O COMANDO
+		# git checkout master > para voltar à linha de desenvolvimento master
+		
+	4.4 - EXECUTE
+		# git log > para conferir que os últimos dois commits não estão lá 
+		
+	
+	passo ( 3.4 )
+		
+
+########################################################################################
+	
+	5 - PARA TRAZER O TRABALHO FEITO NA BRANCH TITULO PARA A BRANCH MASTER
+	
+		EXECUTE O COMANDO
+		# git merge titulo
+			
+		EXECUTE O COMANDO 
+		# git log --graph > para ver as linhas de desenvolvimento (branches)
+		
+		
+	passo ( 4.1 )
+		
+	5.1 - NO CASO APOS O COMANDO MERGE SER EXECUTADO O VSCODE VAI COMPARAR OS DOIS BRANCH,
+		COM O MOUSE SERA POSSIVEL (aceitar mudança atual / aceitar alterações recebida / aceitar as duas / comparar alterações)
+	
+	5.2 - SELECIONADA A OPÇAO DESEJADA EXECUTE
+		# git commit -a > para adcionar marcar e commitar o arquivo.
+		- UM EDITOR "VIM" DEVE ABRIR PARA SAIR DO EDITOR = ":X"
+		
+	passo ( 4.1 )
+		
+	5.3 - EXECUTE O COMANDO
+		# git rebase titulo
+		
+		TAMBEM NESSE CASO APOS O COMANDO REBASE SER EXECUTADO O VSCODE VAI COMPARAR OS DOIS BRANCH,
+		COM O MOUSE SERA POSSIVEL (aceitar mudança atual / aceitar alterações recebida / aceitar as duas / comparar alterações)
+		
+	5.4 - EXECUTE O COMANDO
+		# git log > para visulizar os commit´s
+		# git branch > para verificar a branch atual, note que o resultado sera 
+			(no branch, rebasing master)
+		
+		# git commit -a -m "Commitando ate o momento com Branch Master e rebease titulo ", o resultado será
+			* interactive rebase in progress; onto 9f9df02
+			
+		# git rebase --continue
+		# git branch > para verificar a branch atual
+		
+	5.5 - EXECUTE O COMANDO
+		# git push local master > para enviar suas alterações para o repositório
+		
+	passo ( 3.3 ate 3.6)
+	
+########################################################################################
+
+	6 - REVERTER A OPERAÇÕES ERRADAS NO PROJETO
+	
+		TRABALHOS DIARIOS
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		# git status > para verificar as opçoes que o proprio git sugere
+				(use "git add <file>..." to update what will be committed)
+				(use "git restore <file>..." to discard changes in working directory)
+				modified:   index.html
+				
+		PARA REVERTER O CODIGO NO EDITOR VSCODE OU SEJA CTRL+Z
+		# git restore .\index.html
+			OU		
+		# git checkout -- index.html
+		
+			PARA ADICIONAR
+	6.1 - ao final adicione o arquivo modificado no repositório que esta trabalhando
+		# git add index.html		
+			
+		UMA VEZ ADICIONADO PARA REVERTER USE O "RESET HEAD"	
+	6.2 - EXECUTE O COMANDO
+		# git reset HEAD .\index.html
+		SÓ ASSIM SERA POSSIVEL EXECUTAR 		
+		# git restore .\index.html
+			OU		
+		# git checkout -- index.html
+			
+	6.3 - faça o commit das alterações realizadas 
+		# git commit -a -m "Adicionando e commitando para Reverter"
+		
+	6.4 - EXECUTE COMANDO
+		# git log > para pegar o numero do commit no caso f039e80d0f705f6eb67c0b62fbc3a8cd46f38836
+		# git revert f039e80d0f705f6eb67c0b62fbc3a8cd46f38836
+		
+		DEVERRA SURGIR O EDITOR VIM, SALVE COMO COMO NOME SE DESEJAR E ":X" PARA SAIR
+		
+########################################################################################
+	
+	7 - GUARDAR TEMPORARIAMENTE (STASH) O PROJETO DE TRABALHO ANTES DE FAZER O COMMIT
+	
+		TRABALHOS DIARIOS
+		- modifique oque for necessário no arquivo(s) da pasta de trabalho no caso o "index.html"
+		# git status > para verificar as opçoes que o proprio git sugere
+				(use "git add <file>..." to update what will be committed)
+				(use "git restore <file>..." to discard changes in working directory)
+				modified:   index.html
+				
+	
+	7.1 - COMO DESEJA-SE MANTER AS MODIFICAÇÕES REALIZADAS NO CODIGO POREM NÃO SERA POSSIVEL COMITADAS
+		EXECUTE	COMANDO
+		# git stash > salva todas as alterações, no caso, somente o arquivo index.html, para um local temporário
+		
+	7.2 - COMO SURGIU OUTROS TRABALHOS A SEREM REALIZADOS SEGUE A PRODUÇÃO E ALTERE O PROJETO COMO NECESSÁRIO
+		 faça o commit das alterações realizadas 
+		# git commit -a -m "Adicionando e commitando ATUAL E guardando em stash"
+		
+	7.3 - APOS ISSO BUSQUE AS INFORMAÇÕES ACRESCENTADAS ANTERIORMENTE
+		EXECUTE COMANDO
+		# git stash list > lista de tudo que estiver salvo nestas condições
+		# git stash apply 0, onde ele vai trazer aquele especifico "stash" pelo numero informado
+		   POREM
+		DEPOIS É NECESSÁRIO "DROPAR" ESSE STASH
+		# git stash drop
+		
+			OU 
+			
+		# git stash pop > que pegar a última alteração adicionada à stash, e já removê-la de lá  
+		
+########################################################################################
+	
+	8 - SE DESEJO VERIFICAR O PROJETO EM UMA DETERMINADO COMMIT REALIZADO POSSO USAR O "CHECKOUT"
+		
+	8.1 - EXECUTE O COMANDO
+		# git log --oneline > nos traz os hashs com apenas os sete primeiros caracteres
+			
+			LOCALIZE A HASHS DESEJADA E ANOTE SUA ID + O COMANDO "CHECKOUT"			
+		# git checkout f039e80 > executando esse comando voce sera informado que suas alterações não teram 
+			valores a não ser vc crie uma nova "branch" para o checkout que acabou de executar 
+		
+	8.2 - CASO TIVER MODIFICADO ALGUMA COISA NESSA LINHA DO TEMPO E COMMITADO É POSSIVEL REVERTE O "CHECKOUT"
+		# git checkout -B f039e80
+	
+########################################################################################
+
+	9 - EXIBIR AS DIFERENÇAS ENTRE COMMIT´S
+	
+	9.1 - EXECUTE O COMANDO
+		# git diff > faz uma comparação do codigo alterado, antes de serem commitadas.
+		
+		# git log --oneline > para pegar as id´s dos commit desejados 
+		# git diff 07cebdb..f79fb47 > que mostra as diferenças entre os dois commit realizados 
+	
+########################################################################################
+
+	10 - GERAR VERSÃO RELEASE DO CODIGO NO GIT
+
+	10.1 - TAG SALBE POINT DENTRO DO CODIGO DO GIT
+		EXECUTE O COMANDO
+		# git tag -a versao001 -m "Versão do Sistemas me V001 controle de aplicação"
+		
+	10.2 - EXECUTE COMANDO 
+		# git tag > para visulizar a tag criada 
+		
+	10.3 - EXECUTE COMANDO
+		# git push origin versao001 > para enviar a tag para o gitHub, NESSE CASO NA PAGINA NO GITHUB TERA UMA ABAS
+				TAG QUE INFORMA AS TAG DISPONIVIES PARA DOWNLOAD.
